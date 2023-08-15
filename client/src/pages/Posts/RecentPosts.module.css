@@ -1,0 +1,20 @@
+.post {
+  margin-bottom: 2rem;
+}
+
+.post_title {
+  color: #2f7d95;
+}
+
+.post_date {
+  margin-top: -1rem;
+  margin-bottom: -1rem;
+  font-size: 0.8rem;
+}
+
+.post_contents {
+}
+
+.loader {
+  margin : 100px;
+}

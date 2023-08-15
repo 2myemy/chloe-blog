@@ -1,0 +1,14 @@
+.media-container {
+  width: 345px;
+  height: 200px;
+}
+
+.media{
+  width: 100%;
+  height: 250px;
+}
+
+.card-root {
+  width: 345px;
+  margin: 15px 30px;
+}

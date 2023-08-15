@@ -1,0 +1,24 @@
+.form__container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.card {
+  width: 350px;
+  height: 450px;
+}
+
+.card__title {
+  margin-bottom: 30px;
+}
+
+.card__textfield {
+  width: 320px;
+}
+
+.card__buttons {
+  display: flex;
+  justify-content: center;
+  margin-inline: 7px;
+}

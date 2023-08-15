@@ -1,0 +1,21 @@
+.post_wrapper {
+  display: flex;
+}
+
+.back_btn {
+  margin-top: 30px;
+  margin-left: 100px;
+}
+
+.post {
+  margin: 0 40px;
+}
+
+.post_date {
+  margin-top: -1rem;
+  font-size: 0.8rem;
+}
+
+.loader {
+  margin : 100px;
+}

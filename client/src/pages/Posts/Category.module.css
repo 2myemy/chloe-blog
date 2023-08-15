@@ -1,0 +1,15 @@
+.category_wrapper {
+  text-align: center;
+}
+
+.categories {
+}
+
+.category {
+  margin-bottom: 5px;
+}
+
+.category_link {
+  text-decoration: none;
+  margin-bottom: 10px;
+}

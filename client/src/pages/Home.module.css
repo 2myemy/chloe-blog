@@ -1,0 +1,32 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.img_container{
+  margin-top: 60px;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%
+}
+
+.chloe_img {
+  position: absolute;
+  width: 200%;
+  /* height: 100%; */
+  top: 30%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.greeting {
+  font-size: 21px;
+}
+
+.introduction{
+  text-align : center;
+}

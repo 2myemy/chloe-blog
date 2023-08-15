@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.category_wrapper {
+  width: 25%;
+}
+
+.post_wrapper {
+  width: 70%;
+}
+
+.post_wrapper__create_button {
+  margin-bottom: 15px;
+}
+
+.pagination_wrapper {
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+}
+
+.pagination_wrapper div{
+  display: inline-block;
+}
+

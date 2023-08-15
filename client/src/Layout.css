@@ -1,0 +1,20 @@
+.navContainer { 
+  display: flex;
+}
+
+.navtitle {
+  font-family: 'Poppins', sans-serif;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px;
+  font-size: 15;
+}
+
+.menu-item {
+  text-decoration: none;
+}

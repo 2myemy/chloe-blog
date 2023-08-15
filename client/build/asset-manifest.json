@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.42219b55.css",
+    "main.js": "/static/js/main.ee4d9c20.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/chloelee.png": "/static/media/chloelee.c951923505c7071f7ec0.png",
+    "static/media/rating.png": "/static/media/rating.e676e3b6130587c24616.png",
+    "static/media/harrypotter.jpg": "/static/media/harrypotter.f5b8e3f328cb86b389f4.jpg",
+    "static/media/kanban.png": "/static/media/kanban.95fa22bec911d8732fa4.png",
+    "static/media/joker.jpg": "/static/media/joker.f5640443c496b8b394e5.jpg",
+    "static/media/gravity.jpg": "/static/media/gravity.397ab3c144bcbd9f2c09.jpg",
+    "index.html": "/index.html",
+    "main.42219b55.css.map": "/static/css/main.42219b55.css.map",
+    "main.ee4d9c20.js.map": "/static/js/main.ee4d9c20.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42219b55.css",
+    "static/js/main.ee4d9c20.js"
+  ]
+}

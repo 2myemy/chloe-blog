@@ -1,0 +1,15 @@
+.portfolio__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio__cardrow {
+  display: flex;
+  flex-direction: row;
+}
+
+.portfolio__card {
+  margin: 10px;
+}
