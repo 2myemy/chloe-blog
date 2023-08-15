@@ -1,0 +1,10 @@
+{
+    "development" : {
+        "username": "b298259ab733d3",
+        "password": "0b0622fd",
+        "database": "heroku_0b231b8af259ee9",
+        "host": "us-cdbr-east-06.cleardb.net",
+        "port": "3306",
+        "dialect": "mysql"
+    }
+}
