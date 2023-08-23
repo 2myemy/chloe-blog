@@ -132,7 +132,7 @@ const RatingModal = props => {
             </div>
           </div>
           <div className={classes.comments}>
-            {status ? comments.length > 0 ? (
+            {status && Array.isArray(comments) ? comments.length > 0 ? (
               comments.map((comment, index) => {
                 return comment ? (
                   <div key={index} className={classes.comment}>
