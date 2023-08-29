@@ -1,21 +1,31 @@
 {
   "files": {
-    "main.css": "/static/css/main.42219b55.css",
-    "main.js": "/static/js/main.ee4d9c20.js",
+    "main.css": "/static/css/main.c0a839df.css",
+    "main.js": "/static/js/main.050703dc.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/chloelee.png": "/static/media/chloelee.c951923505c7071f7ec0.png",
+    "static/media/nexttonormal.gif": "/static/media/nexttonormal.b97e61cfd11764f66620.gif",
     "static/media/rating.png": "/static/media/rating.e676e3b6130587c24616.png",
+    "static/media/childhood3.jpeg": "/static/media/childhood3.371375331bd2fce1cc09.jpeg",
+    "static/media/europe10.jpeg": "/static/media/europe10.5b6f97548e31d81cbc28.jpeg",
+    "static/media/europe11.jpeg": "/static/media/europe11.ffcb19a7545ec19e936e.jpeg",
+    "static/media/california.jpeg": "/static/media/california.1b3fbea006eb46836eca.jpeg",
     "static/media/harrypotter.jpg": "/static/media/harrypotter.f5b8e3f328cb86b389f4.jpg",
+    "static/media/sogang.png": "/static/media/sogang.9946f21dad3888b9e46c.png",
+    "static/media/childhood2.jpeg": "/static/media/childhood2.aeeaabb3da8c15a5c81d.jpeg",
     "static/media/kanban.png": "/static/media/kanban.95fa22bec911d8732fa4.png",
+    "static/media/childhood.jpeg": "/static/media/childhood.58956a1c2a886cf2e408.jpeg",
     "static/media/joker.jpg": "/static/media/joker.f5640443c496b8b394e5.jpg",
     "static/media/gravity.jpg": "/static/media/gravity.397ab3c144bcbd9f2c09.jpg",
+    "static/media/band1.jpeg": "/static/media/band1.30c54f5d804fccd254cf.jpeg",
+    "static/media/sogang_logo.jpeg": "/static/media/sogang_logo.b61d958e984dd3aac43c.jpeg",
     "index.html": "/index.html",
-    "main.42219b55.css.map": "/static/css/main.42219b55.css.map",
-    "main.ee4d9c20.js.map": "/static/js/main.ee4d9c20.js.map",
+    "main.c0a839df.css.map": "/static/css/main.c0a839df.css.map",
+    "main.050703dc.js.map": "/static/js/main.050703dc.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.42219b55.css",
-    "static/js/main.ee4d9c20.js"
+    "static/css/main.c0a839df.css",
+    "static/js/main.050703dc.js"
   ]
 }
