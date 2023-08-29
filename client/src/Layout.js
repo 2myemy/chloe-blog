@@ -1,9 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@mui/icons-material/Home";
 import React from "react";
-import { useSelector } from "react-redux";
 import "./Layout.css";
 
 const Layout = () => {
@@ -19,7 +17,7 @@ const Layout = () => {
         </IconButton>
         <ul className="navContainer">
           {/* <li className="navtitle">
-            <NavLink to="/about">About Chloe</NavLink>
+            <NavLink to="/about">About</NavLink>
           </li> */}
           {/* <li className="navtitle">
             <NavLink to="/posts">Posts</NavLink>
