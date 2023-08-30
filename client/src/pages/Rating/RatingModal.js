@@ -42,12 +42,22 @@ const RatingModal = props => {
     const movie = props.movie;
 
     console.log(movie);
+    let headers = new Headers();
 
-    const res = await axios("/rate/create", {
-      method: "POST",
-      data: { movie, rate, comment },
-      headers: new Headers()
-    });
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "application/json");
+
+    headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
+    headers.append("Access-Control-Allow-Credentials", "true");
+
+    const res = await axios(
+      "https://chloe-artache-blog.herokuapp.com/rate/create",
+      {
+        method: "POST",
+        data: { movie, rate, comment },
+        headers
+      }
+    );
 
     if (res.data) {
       console.log(res.data);
@@ -70,10 +80,20 @@ const RatingModal = props => {
   };
 
   const getAllComments = async () => {
-    const res = await axios(`/rate/get/${props.movie}`, {
-      method: "GET",
-      headers: new Headers()
-    });
+    let headers = new Headers();
+
+    headers.append("Content-Type", "application/json");
+    headers.append("Accept", "application/json");
+    headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
+    headers.append("Access-Control-Allow-Credentials", "true");
+
+    const res = await axios(
+      `https://chloe-artache-blog.herokuapp.com/rate/get/${props.movie}`,
+      {
+        method: "GET",
+        headers
+      }
+    );
 
     if (res.data) {
       setComments(res.data);
@@ -132,35 +152,35 @@ const RatingModal = props => {
             </div>
           </div>
           <div className={classes.comments}>
-            {status && Array.isArray(comments) ? comments.length > 0 ? (
-              comments.map((comment, index) => {
-                return comment ? (
-                  <div key={index} className={classes.comment}>
-                    <p>
-                      <Rating
-                        style={{ fontSize: "1rem" }}
-                        name="read-only"
-                        value={comment.rate}
-                        readOnly
-                      /> 
-                      <b> {comment.rate}</b>
-                      <br />
-                      {comment.comment}
-                      <br />
-                      {comment.created_date}
-                    </p>
-                    <div className={classes.division_line}></div>
-                  </div>
-                ) : (
-                  <div className={classes.loader}>
-                    <Loader />
-                  </div>
-                );
-              })
-            ) : (
-              <div>
-                No comments are in record.
-              </div>
+            {status && Array.isArray(comments) ? (
+              comments.length > 0 ? (
+                comments.map((comment, index) => {
+                  return comment ? (
+                    <div key={index} className={classes.comment}>
+                      <p>
+                        <Rating
+                          style={{ fontSize: "1rem" }}
+                          name="read-only"
+                          value={comment.rate}
+                          readOnly
+                        />
+                        <b> {comment.rate}</b>
+                        <br />
+                        {comment.comment}
+                        <br />
+                        {comment.created_date}
+                      </p>
+                      <div className={classes.division_line}></div>
+                    </div>
+                  ) : (
+                    <div className={classes.loader}>
+                      <Loader />
+                    </div>
+                  );
+                })
+              ) : (
+                <div>No comments are in record.</div>
+              )
             ) : (
               <div>
                 <Loader />
