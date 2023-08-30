@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import classes from "./KanbanMain.module.css";
 import Card from "@mui/material/Card";
 import Button from "@mui/material/Button";
@@ -7,79 +7,71 @@ import AddIcon from "@mui/icons-material/Add";
 import ClearIcon from "@mui/icons-material/Clear";
 import { Draggable, Droppable } from "react-drag-and-drop";
 
-import KanbanBox from "./KanbanBox";
-
 const KanbanMain = () => {
+  const draggableRef = useRef();
+
   const [doTasks, setDoTasks] = useState([
     {
-      id: 1,
-      title: "do_1",
-      content: "To dodododo"
+      id: taskidGenerator(),
+      type: "do",
+      content: "Add priority to a Kanban board task"
     },
     {
-      id: 2,
-      title: "do_2",
-      content: "To lalala"
+      id: taskidGenerator(),
+      type: "do",
+      content: "Fix Kanban board task ordering"
     }
   ]);
 
   const [progressTasks, setProgressTasks] = useState([
     {
-      id: 1,
-      title: "progress_1",
-      content: "In progresssss1"
-    },
-    {
-      id: 2,
-      title: "progress_2",
-      content: "INNNN progress2"
-    },
-    {
-      id: 3,
-      title: "progress_3",
-      content: "INNNN progress3"
+      id: taskidGenerator(),
+      type: "progress",
+      content: "Add Redux to chloe-blog project"
     }
   ]);
 
   const [doneTasks, setDoneTasks] = useState([
     {
-      id: 1,
-      title: "done_1",
-      content: "Done1"
-    },
-    {
-      id: 2,
-      title: "done_2",
-      content: "Done2"
-    },
-    {
-      id: 3,
-      title: "done_3",
-      content: "Done3"
+      id: taskidGenerator(),
+      type: "done",
+      content: "Add Home page on chloe-blog project"
     }
   ]);
 
+  function taskidGenerator() {
+  
+  return Math.random().toString(36).substring(2, 8);
+  }
+
   const onDropToDo = data => {
-    if (data["task"].includes("progress")) {
-      let id = data["task"].split("_")[1];
-      let filteredTasks = progressTasks.filter(e => e["id"] !== parseInt(id));
-      let droppedTask = progressTasks.filter(e => e["id"] === parseInt(id))[0];
+    const task = JSON.parse(data.task);
+    if (task.type == "progress") {
+      let id = task.id;
+      let filteredTasks = progressTasks.filter(e => e["id"] !== id);
+      let droppedTask = progressTasks.filter(e => e["id"] === id)[0];
       setProgressTasks(filteredTasks);
-      doTasks.push({
-        id: doTasks.length + 1,
-        title: `do_${doTasks.length + 1}`,
-        content: droppedTask["content"]
-      });
-    } else if (data["task"].includes("done")) {
-      let id = data["task"].split("_")[1];
-      let filteredTasks = doneTasks.filter(e => e["id"] !== parseInt(id));
-      let droppedTask = doneTasks.filter(e => e["id"] === parseInt(id))[0];
-      setDoneTasks(filteredTasks);
+
       console.log(filteredTasks);
       console.log(droppedTask);
+
       doTasks.push({
-        id: doTasks.length + 1,
-        title: `do_${doTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: `do`,
+        content: droppedTask["content"]
+      });
+    } else if (task.type == "done") {
+      let id = task.id;
+      let filteredTasks = doneTasks.filter(e => e["id"] !== id);
+      let droppedTask = doneTasks.filter(e => e["id"] === id)[0];
+      setDoneTasks(filteredTasks);
+
+      console.log(filteredTasks);
+      console.log(droppedTask);
+
+      doTasks.push({
+        id: taskidGenerator(),
+        type: `do`,
         content: droppedTask["content"]
       });
     }
@@ -87,24 +79,35 @@ const KanbanMain = () => {
   };
 
   const onDropToProgress = data => {
-    if (data["task"].includes("do_")) {
-      let id = data["task"].split("_")[1];
-      let filteredTasks = doTasks.filter(e => e["id"] !== parseInt(id));
-      let droppedTask = doTasks.filter(e => e["id"] === parseInt(id))[0];
+    const task = JSON.parse(data.task);
+    if (task.type == "do") {
+      let id = task.id;
+      let filteredTasks = doTasks.filter(e => e["id"] !== id);
+      let droppedTask = doTasks.filter(e => e["id"] === id)[0];
       setDoTasks(filteredTasks);
+
+
+      console.log(filteredTasks);
+      console.log(droppedTask);
+
       progressTasks.push({
-        id: progressTasks.length + 1,
-        title: `progress_${progressTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: 'progress',
         content: droppedTask["content"]
       });
-    } else if (data["task"].includes("done")) {
-      let id = data["task"].split("_")[1];
-      let filteredTasks = doneTasks.filter(e => e["id"] !== parseInt(id));
-      let droppedTask = doneTasks.filter(e => e["id"] === parseInt(id))[0];
+    } else if (task.type == "done") {
+      let id = task.id;
+      let filteredTasks = doneTasks.filter(e => e["id"] !== id);
+      let droppedTask = doneTasks.filter(e => e["id"] === id)[0];
       setDoneTasks(filteredTasks);
+
+
+      console.log(filteredTasks);
+      console.log(droppedTask);
+
       progressTasks.push({
-        id: progressTasks.length + 1,
-        title: `progress_${progressTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: 'progress',
         content: droppedTask["content"]
       });
     }
@@ -112,27 +115,35 @@ const KanbanMain = () => {
   };
 
   const onDropToDone = data => {
-    if (data["task"].includes("do_")) {
-      let id = data["task"].split("_")[1];
-      let filteredTasks = doTasks.filter(e => e["id"] !== parseInt(id));
-      let droppedTask = doTasks.filter(e => e["id"] === parseInt(id))[0];
+    const task = JSON.parse(data.task);
+    if (task.type == "do") {
+      let id = task.id;
+      let filteredTasks = doTasks.filter(e => e["id"] !== id);
+      let droppedTask = doTasks.filter(e => e["id"] === id)[0];
       setDoTasks(filteredTasks);
+
+
       console.log(filteredTasks);
       console.log(droppedTask);
+
       doneTasks.push({
-        id: doneTasks.length + 1,
-        title: `done_${doneTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: 'done',
         content: droppedTask["content"]
       });
-    } else if (data["task"].includes("progress")) {
-      let id = data["task"].split("_")[1];
-      let filteredTasks = progressTasks.filter(e => e["id"] !== parseInt(id));
-      let droppedTask = progressTasks.filter(e => e["id"] === parseInt(id))[0];
-
+    } else if (task.type == "progress") {
+      let id = task.id;
+      let filteredTasks = progressTasks.filter(e => e["id"] !== id);
+      let droppedTask = progressTasks.filter(e => e["id"] === id)[0];
       setProgressTasks(filteredTasks);
+
+
+      console.log(filteredTasks);
+      console.log(droppedTask);
+
       doneTasks.push({
-        id: doneTasks.length + 1,
-        title: `done_${doneTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: `done`,
         content: droppedTask["content"]
       });
     }
@@ -144,11 +155,12 @@ const KanbanMain = () => {
     setDoTasks(oldArray => [
       ...oldArray,
       {
-        id: doTasks.length === 0 ? 1 : doTasks[doTasks.length - 1]["id"] + 1,
-        title: `do_${doTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: "do",
         content: ""
       }
     ]);
+    console.log(doTasks);
   };
 
   const onProgressCardClick = event => {
@@ -156,14 +168,12 @@ const KanbanMain = () => {
     setProgressTasks(oldArray => [
       ...oldArray,
       {
-        id:
-          progressTasks.length === 0
-            ? 1
-            : progressTasks[progressTasks.length - 1]["id"] + 1,
-        title: `progress_${progressTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: "progress",
         content: ""
       }
     ]);
+    console.log(progressTasks);
   };
 
   const onDoneCardClick = event => {
@@ -171,24 +181,61 @@ const KanbanMain = () => {
     setDoneTasks(oldArray => [
       ...oldArray,
       {
-        id:
-          doneTasks.length === 0
-            ? 1
-            : doneTasks[doneTasks.length - 1]["id"] + 1,
-        title: `done_${doneTasks.length + 1}`,
+        id: taskidGenerator(),
+        type: "done",
         content: ""
       }
     ]);
+
+    console.log(doneTasks);
   };
 
   const onDoDeleteClick = e => {
     const target = e.target;
-    let parent_div = target.parentElement;
+    let parent_div = target.parentElement.parentElement.parentElement;
     const div_id = parent_div.id;
+    let filteredTasks = doTasks.filter(e => e["id"] !== div_id);
+    setDoTasks(filteredTasks);
 
+    console.log(doTasks);
+  };
 
-    console.log(parent_div);
-    console.log(div_id);
+  const onProgressDeleteClick = e => {
+    const target = e.target;
+    let parent_div = target.parentElement.parentElement.parentElement;
+    const div_id = parent_div.id;
+    let filteredTasks = progressTasks.filter(e => e["id"] !== div_id);
+    setProgressTasks(filteredTasks);
+
+    console.log(progressTasks);
+  };
+
+  const onDoneDeleteClick = e => {
+    const target = e.target;
+    let parent_div = target.parentElement.parentElement.parentElement;
+    const div_id = parent_div.id;
+    let filteredTasks = doneTasks.filter(e => e["id"] !== div_id);
+    setDoneTasks(filteredTasks);
+
+    console.log(doneTasks);
+  };
+
+  const doTaskboxChange = e => {
+    let filteredTask = doTasks.filter(task => task.id == e.target.id)[0];
+    filteredTask.content = e.target.value;
+    setDoTasks(doTasks);
+  };
+
+  const progressTaskboxChange = e => {
+    let filteredTask = progressTasks.filter(task => task.id == e.target.id)[0];
+    filteredTask.content = e.target.value;
+    setProgressTasks(progressTasks);
+  }; 
+
+  const doneTaskboxChange = e => {
+    let filteredTask = doneTasks.filter(task => task.id == e.target.id)[0];
+    filteredTask.content = e.target.value;
+    setDoneTasks(doneTasks);
   };
 
   return (
@@ -200,16 +247,19 @@ const KanbanMain = () => {
             <p className={classes.box_title}>To Do</p>
             {doTasks.map((item, i) => (
               <Draggable
+                ref={draggableRef}
                 key={item.id}
                 type="task"
-                data={item.title}
+                data={JSON.stringify(item)}
                 id={item.id}
+                task_type="do"
               >
                 <Card className={classes.task_box}>
-                  <input
+                  <textarea
                     className={classes.task_input}
                     type="text"
                     defaultValue={item.content}
+                    onChange={doTaskboxChange}
                   />
                   <IconButton
                     className={classes.delete_button}
@@ -225,7 +275,7 @@ const KanbanMain = () => {
               startIcon={<AddIcon />}
               onClick={onDoCardClick}
             >
-              Add a card
+              Add a task
             </Button>
           </Droppable>
         </Card>
@@ -235,18 +285,25 @@ const KanbanMain = () => {
             <p className={classes.box_title}>In Progress</p>
             {progressTasks.map((item, i) => (
               <Draggable
+                ref={draggableRef}
                 key={item.id}
                 type="task"
-                data={item.title}
+                data={JSON.stringify(item)}
                 id={item.id}
+                task_type="progress"
               >
                 <Card className={classes.task_box}>
-                  <input
+                  <textarea
+                    id={item.id}
                     className={classes.task_input}
                     type="text"
                     defaultValue={item.content}
+                    onChange={progressTaskboxChange}
                   />
-                  <IconButton className={classes.delete_button}>
+                  <IconButton
+                    className={classes.delete_button}
+                    onClick={onProgressDeleteClick}
+                  >
                     <ClearIcon />
                   </IconButton>
                 </Card>
@@ -257,7 +314,7 @@ const KanbanMain = () => {
               startIcon={<AddIcon />}
               onClick={onProgressCardClick}
             >
-              Add a card
+              Add a task
             </Button>
           </Droppable>
         </Card>
@@ -267,18 +324,24 @@ const KanbanMain = () => {
             <p className={classes.box_title}>Done</p>
             {doneTasks.map((item, i) => (
               <Draggable
+                ref={draggableRef}
                 key={item.id}
                 type="task"
-                data={item.title}
+                data={JSON.stringify(item)}
                 id={item.id}
+                task_type="done"
               >
                 <Card className={classes.task_box}>
-                  <input
+                  <textarea
                     className={classes.task_input}
                     type="text"
                     defaultValue={item.content}
+                    onChange={doneTaskboxChange}
                   />
-                  <IconButton className={classes.delete_button}>
+                  <IconButton
+                    className={classes.delete_button}
+                    onClick={onDoneDeleteClick}
+                  >
                     <ClearIcon />
                   </IconButton>
                 </Card>
@@ -289,7 +352,7 @@ const KanbanMain = () => {
               startIcon={<AddIcon />}
               onClick={onDoneCardClick}
             >
-              Add a card
+              Add a task
             </Button>
           </Droppable>
         </Card>

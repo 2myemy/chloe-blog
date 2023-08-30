@@ -1,3 +1,7 @@
+body {
+  overflow: auto
+}
+
 .title {
   width: 964px;
   height: 33px;
@@ -13,6 +17,7 @@
   display: flex;
   margin-left: 60px;
   margin-top: 10px;
+  margin-bottom: 60px;
 }
 
 .box {
@@ -35,13 +40,16 @@
   max-width: 26vw;
   margin-left: 6px;
   margin-top: 10px;
+  height: 80px;
   align-self: center;
   display: flex;
 }
 
 .task_input {
+  padding: 10px;
   width: 90%;
   border: none;
+  resize: none;
 }
 
 .add_button {

@@ -183,15 +183,15 @@ const Home = () => {
           </div>
           <div className={classes.bg_yellow_text}>
             <p className={classes.section1}>
-              I was born in Daejeon, South Korea in 1997. With the name of
-              Myung-yeon Lee. <br />
+              I was born in Daejeon, South Korea in 1997 with the name of
+              Myungyeon Lee. <br />
               It means bright and beautiful.
               <br />
-              My dad thought this name, as soon as I was born and he saw me.
+              My dad thought of this name, as soon as I was born and he saw me.
               <br />
-              It's a unique and difficult name to pronounce, but I love my name.
+              It's a unique and difficult name to pronounce, but I love my name
               <br />
-              Because I can feel that I'm loved when I hear my name.
+              because I can feel that I'm loved when I hear my name.
             </p>
           </div>
         </div>
@@ -216,7 +216,7 @@ const Home = () => {
               "Be proud to be part of Sogang as Sogang is proud of being part of
               you."
               <br />
-              This is my univ's slogan. <br />I think I'm pretty proud to be
+              This is my university's slogan. <br />I think I'm pretty proud to be
               part of Sogang.
             </p>
           </div>
@@ -241,9 +241,9 @@ const Home = () => {
           </div>
           <div className={classes.bg_purple_text}>
             <p className={classes.section1}>
-              I started a college band club and a musical club.
+              I started a college band club and a musical club
               <br />
-              Because I loved the music and the stage.
+              because I loved music and the stage.
               <br />
               I was so happy when I was perfoming on the stage that we made
               together all night.
@@ -276,10 +276,10 @@ const Home = () => {
           <div className={classes.bg_orange_text}>
             <p className={classes.section3}>
               Before graduation, I left for Europe, with money that I earned
-              from part-time job for 100 days.
+              from part-time jobs for 100 days.
               <br />
               {/* 걷고 또 걸었던 기억이 나<br/> */}
-              The most memorable thing was not the Michelin restaurant or fancy
+              The most memorable thing was not a Michelin restaurant or fancy
               palace in France,
               <br />
               but the scenery I saw on the bus I boarded without a destination
