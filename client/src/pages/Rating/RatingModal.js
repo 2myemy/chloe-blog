@@ -46,15 +46,18 @@ const RatingModal = props => {
 
     headers.append("Content-Type", "application/json");
     headers.append("Accept", "application/json");
-    headers.append("Access-Control-Allow-Origin", "*");
-    headers.append("Access-Control-Allow-Credentials", "true");
-    headers.append("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT");
 
-    const res = await axios("/rate/create", {
-      method: "POST",
-      data: { movie, rate, comment },
-      headers: headers
-    });
+    headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
+    headers.append("Access-Control-Allow-Credentials", "true");
+
+    const res = await axios(
+      "https://chloe-artache-blog.herokuapp.com/rate/create",
+      {
+        method: "POST",
+        data: { movie, rate, comment },
+        headers
+      }
+    );
 
     if (res.data) {
       console.log(res.data);
@@ -78,16 +81,19 @@ const RatingModal = props => {
 
   const getAllComments = async () => {
     let headers = new Headers();
+
     headers.append("Content-Type", "application/json");
     headers.append("Accept", "application/json");
-    headers.append("Access-Control-Allow-Origin", "*");
+    headers.append("Access-Control-Allow-Origin", "http://localhost:3000");
     headers.append("Access-Control-Allow-Credentials", "true");
-    headers.append("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT");
 
-    const res = await axios(`/rate/get/${props.movie}`, {
-      method: "GET",
-      headers
-    });
+    const res = await axios(
+      `https://chloe-artache-blog.herokuapp.com/rate/get/${props.movie}`,
+      {
+        method: "GET",
+        headers
+      }
+    );
 
     if (res.data) {
       setComments(res.data);
