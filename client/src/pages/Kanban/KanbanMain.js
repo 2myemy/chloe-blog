@@ -40,8 +40,9 @@ const KanbanMain = () => {
   ]);
 
   function taskidGenerator() {
-  
-  return Math.random().toString(36).substring(2, 8);
+    return Math.random()
+      .toString(36)
+      .substring(2, 8);
   }
 
   const onDropToDo = data => {
@@ -86,13 +87,12 @@ const KanbanMain = () => {
       let droppedTask = doTasks.filter(e => e["id"] === id)[0];
       setDoTasks(filteredTasks);
 
-
       console.log(filteredTasks);
       console.log(droppedTask);
 
       progressTasks.push({
         id: taskidGenerator(),
-        type: 'progress',
+        type: "progress",
         content: droppedTask["content"]
       });
     } else if (task.type == "done") {
@@ -101,13 +101,12 @@ const KanbanMain = () => {
       let droppedTask = doneTasks.filter(e => e["id"] === id)[0];
       setDoneTasks(filteredTasks);
 
-
       console.log(filteredTasks);
       console.log(droppedTask);
 
       progressTasks.push({
         id: taskidGenerator(),
-        type: 'progress',
+        type: "progress",
         content: droppedTask["content"]
       });
     }
@@ -122,13 +121,12 @@ const KanbanMain = () => {
       let droppedTask = doTasks.filter(e => e["id"] === id)[0];
       setDoTasks(filteredTasks);
 
-
       console.log(filteredTasks);
       console.log(droppedTask);
 
       doneTasks.push({
         id: taskidGenerator(),
-        type: 'done',
+        type: "done",
         content: droppedTask["content"]
       });
     } else if (task.type == "progress") {
@@ -136,7 +134,6 @@ const KanbanMain = () => {
       let filteredTasks = progressTasks.filter(e => e["id"] !== id);
       let droppedTask = progressTasks.filter(e => e["id"] === id)[0];
       setProgressTasks(filteredTasks);
-
 
       console.log(filteredTasks);
       console.log(droppedTask);
@@ -230,7 +227,7 @@ const KanbanMain = () => {
     let filteredTask = progressTasks.filter(task => task.id == e.target.id)[0];
     filteredTask.content = e.target.value;
     setProgressTasks(progressTasks);
-  }; 
+  };
 
   const doneTaskboxChange = e => {
     let filteredTask = doneTasks.filter(task => task.id == e.target.id)[0];
@@ -256,6 +253,7 @@ const KanbanMain = () => {
               >
                 <Card className={classes.task_box}>
                   <textarea
+                    id={item.id}
                     className={classes.task_input}
                     type="text"
                     defaultValue={item.content}
@@ -333,6 +331,7 @@ const KanbanMain = () => {
               >
                 <Card className={classes.task_box}>
                   <textarea
+                    id={item.id}
                     className={classes.task_input}
                     type="text"
                     defaultValue={item.content}
