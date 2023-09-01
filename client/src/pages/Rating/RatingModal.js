@@ -42,18 +42,17 @@ const RatingModal = props => {
     const movie = props.movie;
 
     console.log(movie);
-    let headers = new Headers();
 
-    headers.append("Content-Type", "application/json");
-    headers.append("Accept", "application/json");
-    headers.append("Access-Control-Allow-Origin", "*");
-    headers.append("Access-Control-Allow-Credentials", "true");
-    headers.append("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT");
-
-    const res = await axios("/rate/create", {
+    const res = await axios({
+      url: "/rate/create",
+      baseURL: "https://chloe-artache-blog.herokuapp.com",
       method: "POST",
       data: { movie, rate, comment },
-      headers: headers
+      header: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT"
+      }
     });
 
     if (res.data) {
@@ -77,15 +76,6 @@ const RatingModal = props => {
   };
 
   const getAllComments = async () => {
-    let headers = new Headers();
-    headers.append("Content-Type", "application/json");
-    headers.append("Accept", "application/json");
-    headers.append("Access-Control-Allow-Origin", "*");
-    headers.append("Access-Control-Allow-Credentials", "true");
-    headers.append("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT");
-
-    console.log(headers);
-
     const res = await axios({
       url: `/rate/get/${props.movie}`,
       baseURL: "https://chloe-artache-blog.herokuapp.com",
@@ -103,6 +93,22 @@ const RatingModal = props => {
     } else if (res.status == 500) {
       setStatus(false);
     }
+  };
+
+  const commentDate = date => {
+    return (
+      date.split("T")[0].split("-")[0] +
+      "." +
+      date.split("T")[0].split("-")[1] +
+      "." +
+      date.split("T")[0].split("-")[2]
+    );
+  };
+
+  const commentDateTime = date => {
+    return (
+      date.split("T")[1].split(":")[0] + ":" + date.split("T")[1].split(":")[1]
+    );
   };
 
   return (
@@ -170,7 +176,8 @@ const RatingModal = props => {
                         <br />
                         {comment.comment}
                         <br />
-                        {comment.created_date}
+                        {commentDate(comment.created_date)}{" "}
+                        {commentDateTime(comment.created_date)}
                       </p>
                       <div className={classes.division_line}></div>
                     </div>
