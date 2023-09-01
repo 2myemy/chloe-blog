@@ -84,9 +84,17 @@ const RatingModal = props => {
     headers.append("Access-Control-Allow-Credentials", "true");
     headers.append("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT");
 
-    const res = await axios(`/rate/get/${props.movie}`, {
+    console.log(headers);
+
+    const res = await axios({
+      url: `/rate/get/${props.movie}`,
+      baseURL: "https://chloe-artache-blog.herokuapp.com",
       method: "GET",
-      headers
+      header: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS, PUT"
+      }
     });
 
     if (res.data) {
