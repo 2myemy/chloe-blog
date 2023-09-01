@@ -164,7 +164,7 @@ const Home = () => {
         </div>
         <div className="divider"></div>
         <div className={classes.bg_yellow}>
-          <div>
+          <div  className={classes.bg_yellow_imgs}>
             <img
               className={classes.img3}
               src={require("../assets/childhood2.jpeg")}
@@ -222,7 +222,7 @@ const Home = () => {
           </div>
         </div>
         <div className={classes.bg_purple}>
-          <div>
+          <div className={classes.bg_purple_imgs}>
             <img
               className={classes.img7}
               src={require("../assets/band1.jpeg")}
@@ -241,8 +241,7 @@ const Home = () => {
           </div>
           <div className={classes.bg_purple_text}>
             <p className={classes.section1}>
-              I started a college band club and a musical club
-              <br />
+              I started a college band club and a musical club <br/>
               because I loved music and the stage.
               <br />
               I was so happy when I was perfoming on the stage that we made
@@ -302,7 +301,7 @@ const Home = () => {
         <div className={classes.bg_navy}>
           <div className={classes.bg_navy_text}>
             <p className={classes.section4}>
-              And now I'm here, California.
+              And now I'm here, <strong>California</strong>.
               <br />
               Why don't you join me on my next journey?
             </p>
