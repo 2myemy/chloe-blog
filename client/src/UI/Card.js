@@ -12,8 +12,13 @@ import "./Card.css";
 const MediaCard = props => {
 
   const onClick = () => {
-    window.location.href = `/portfolio/${props.link}`;
+    if (props.link.includes('http')) {
+      window.open(props.link);
+    } else {
+      window.location.href = `/portfolio/${props.link}`;
+    }
   }
+
   return (
     <Card className="card-root">
       <CardActionArea>
