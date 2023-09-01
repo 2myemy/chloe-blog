@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.50a3c367.css",
-    "main.js": "/static/js/main.c40ac19a.js",
+    "main.css": "/static/css/main.a169c8f0.css",
+    "main.js": "/static/js/main.2c63cc33.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/chloelee.png": "/static/media/chloelee.c951923505c7071f7ec0.png",
     "static/media/nexttonormal.gif": "/static/media/nexttonormal.b97e61cfd11764f66620.gif",
@@ -20,12 +20,12 @@
     "static/media/kanban.png": "/static/media/kanban.021a7a13d6ddea6730fc.png",
     "static/media/sogang_logo.jpeg": "/static/media/sogang_logo.b61d958e984dd3aac43c.jpeg",
     "index.html": "/index.html",
-    "main.50a3c367.css.map": "/static/css/main.50a3c367.css.map",
-    "main.c40ac19a.js.map": "/static/js/main.c40ac19a.js.map",
+    "main.a169c8f0.css.map": "/static/css/main.a169c8f0.css.map",
+    "main.2c63cc33.js.map": "/static/js/main.2c63cc33.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.50a3c367.css",
-    "static/js/main.c40ac19a.js"
+    "static/css/main.a169c8f0.css",
+    "static/js/main.2c63cc33.js"
   ]
 }
